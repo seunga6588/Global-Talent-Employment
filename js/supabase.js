@@ -9,8 +9,8 @@
 // 절대 service_role key를 이 파일에 넣지 마세요!
 // =========================================================
 
-const SUPABASE_URL = "https://YOUR_PROJECT_REF.supabase.co";
-const SUPABASE_ANON_KEY = "YOUR_ANON_PUBLIC_KEY";
+const SUPABASE_URL = "https://znqdcihducwsypxzmmvb.supabase.co/rest/v1/";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpucWRjaWhkdWN3c3lweHptbXZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg2Nzk1NzUsImV4cCI6MjEwNDI1NTU3NX0.73JYccO9T0RU80bbWDpIZlg6ozNaspJrM9L2y5q3X9A";
 
 // Supabase JS 라이브러리(CDN)로부터 클라이언트를 생성합니다.
 // 각 HTML 파일에서 아래 스크립트를 supabase.js 보다 먼저 불러와야 합니다:
