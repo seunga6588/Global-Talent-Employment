@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교육관리 | 학생 통합관리 시스템</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id="layoutHeader"></div>
+<div class="app-layout">
+  <div id="layoutSidebar"></div>
+
+  <div class="main-content">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h5 class="mb-0" style="font-weight:800; color:var(--navy);">교육 프로그램 관리</h5>
+      <button class="btn btn-pink btn-sm" data-bs-toggle="modal" data-bs-target="#programModal" onclick="openAddProgram()">+ 프로그램 추가</button>
+    </div>
+
+    <div class="panel">
+      <table class="data-table">
+        <thead>
+          <tr><th>프로그램명</th><th>교육일자</th><th class="text-end">이수한 학생 수</th><th></th></tr>
+        </thead>
+        <tbody id="programsBody"><tr><td colspan="4" class="text-center text-muted py-3">불러오는 중...</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 프로그램 추가/수정 모달 -->
+<div class="modal fade" id="programModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h6 class="modal-title" id="programModalTitle">프로그램 추가</h6><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="programForm">
+          <input type="hidden" name="id">
+          <div class="row g-2">
+            <div class="col-12"><label class="form-label small">프로그램명*</label><input required class="form-control form-control-sm" name="name"></div>
+            <div class="col-6"><label class="form-label small">교육구분</label><input class="form-control form-control-sm" name="category"></div>
+            <div class="col-6"><label class="form-label small">교육일자</label><input type="date" class="form-control form-control-sm" name="edu_date"></div>
+            <div class="col-6">
+              <label class="form-label small">필수/선택</label>
+              <select class="form-select form-select-sm" name="is_required"><option value="true">필수</option><option value="false">선택</option></select>
+            </div>
+            <div class="col-6"><label class="form-label small">인정 이수시간</label><input type="number" step="0.5" min="0" class="form-control form-control-sm" name="required_hours" value="2"></div>
+            <div class="col-6">
+              <label class="form-label small">학습평가 실시</label>
+              <select class="form-select form-select-sm" name="has_exam"><option value="false">미실시</option><option value="true">실시</option></select>
+            </div>
+            <div class="col-6">
+              <label class="form-label small">재응시 허용</label>
+              <select class="form-select form-select-sm" name="retake_allowed"><option value="false">1회만 응시</option><option value="true">재응시 허용</option></select>
+            </div>
+            <div class="col-12"><label class="form-label small">이수기준</label><input class="form-control form-control-sm" name="completion_criteria" placeholder="예: 필수시간 100% 참석"></div>
+            <div class="col-6"><label class="form-label small">담당자</label><input class="form-control form-control-sm" name="manager_name"></div>
+            <div class="col-12"><label class="form-label small">비고</label><textarea class="form-control form-control-sm" name="memo" rows="2"></textarea></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-navy btn-sm" id="saveProgramBtn">저장</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/programs.js"></script>
+</body>
+</html>
