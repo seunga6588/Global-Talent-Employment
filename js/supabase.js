@@ -9,7 +9,7 @@
 // 절대 service_role key를 이 파일에 넣지 마세요!
 // =========================================================
 
-const SUPABASE_URL = "https://znqdcihducwsypxzmmvb.supabase.co/rest/v1/";
+const SUPABASE_URL = "https://znqdcihducwsypxzmmvb.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpucWRjaWhkdWN3c3lweHptbXZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg2Nzk1NzUsImV4cCI6MjEwNDI1NTU3NX0.73JYccO9T0RU80bbWDpIZlg6ozNaspJrM9L2y5q3X9A";
 
 // Supabase JS 라이브러리(CDN)로부터 클라이언트를 생성합니다.
