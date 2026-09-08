@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시험 관리 | 학생 통합관리 시스템</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id="layoutHeader"></div>
+<div class="app-layout">
+  <div id="layoutSidebar"></div>
+
+  <div class="main-content">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h5 class="mb-0" style="font-weight:800; color:var(--navy);">학습평가 - 종합 시험 관리</h5>
+      <button class="btn btn-pink btn-sm" data-bs-toggle="modal" data-bs-target="#examModal">+ 시험 추가</button>
+    </div>
+    <p class="text-muted mb-3" style="font-size:13px;">
+      학습평가는 특정 프로그램이 아니라 <b>전체 교육 프로그램을 모두 이수한 학생</b>이 응시하는
+      종합 시험입니다. 학생은 모든 프로그램의 필수 이수시간을 채워야 아래 시험에 응시할 수 있습니다.
+    </p>
+
+    <div class="panel">
+      <table class="data-table">
+        <thead><tr><th>시험명</th><th class="text-end">문제 수</th><th>재응시</th><th>상태</th><th></th></tr></thead>
+        <tbody id="examsBody"><tr><td colspan="5" class="text-center text-muted py-3">불러오는 중...</td></tr></tbody>
+      </table>
+    </div>
+
+    <!-- 문제 관리 영역 -->
+    <div class="panel" id="questionPanel" style="display:none;">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div class="panel-title mb-0" id="questionPanelTitle">문제 관리</div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-navy btn-sm" id="loadSampleQuestionsBtn">기본 시험지 20문항 불러오기</button>
+          <button class="btn btn-outline-navy btn-sm" data-bs-toggle="modal" data-bs-target="#questionModal" onclick="openAddQuestion()">+ 문제 추가</button>
+        </div>
+      </div>
+      <table class="data-table">
+        <thead><tr><th style="width:40px;">번호</th><th>문제</th><th>보기</th><th>정답</th><th class="text-end">배점</th><th></th></tr></thead>
+        <tbody id="questionsBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 시험 추가/수정 모달 -->
+<div class="modal fade" id="examModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h6 class="modal-title">시험 추가</h6><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="examForm">
+          <div class="mb-2"><label class="form-label small">시험명*</label><input required class="form-control form-control-sm" name="title" value="2025년 글로벌 인재 취업 선도대학 사업 수료 시험"></div>
+          <div class="mb-2">
+            <label class="form-label small">재응시 허용 여부</label>
+            <select class="form-select form-select-sm" name="retake_allowed">
+              <option value="false">1회만 응시</option>
+              <option value="true">재응시 허용</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-navy btn-sm" id="saveExamBtn">저장</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- 문제 추가/수정 모달 -->
+<div class="modal fade" id="questionModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"><h6 class="modal-title" id="questionModalTitle">문제 추가</h6><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="questionForm">
+          <input type="hidden" name="id">
+          <div class="mb-2"><label class="form-label small">문제*</label><textarea required class="form-control form-control-sm" name="question" rows="2"></textarea></div>
+          <div class="row g-2">
+            <div class="col-12"><label class="form-label small">보기 1</label><input class="form-control form-control-sm" name="choice1"></div>
+            <div class="col-12"><label class="form-label small">보기 2</label><input class="form-control form-control-sm" name="choice2"></div>
+            <div class="col-12"><label class="form-label small">보기 3</label><input class="form-control form-control-sm" name="choice3"></div>
+            <div class="col-12"><label class="form-label small">보기 4</label><input class="form-control form-control-sm" name="choice4"></div>
+            <div class="col-12"><label class="form-label small">보기 5 (선택)</label><input class="form-control form-control-sm" name="choice5"></div>
+          </div>
+          <div class="row g-2 mt-1">
+            <div class="col-6">
+              <label class="form-label small">정답 번호(1~5)</label>
+              <input type="number" min="1" max="5" required class="form-control form-control-sm" name="correct">
+            </div>
+            <div class="col-6">
+              <label class="form-label small">배점</label>
+              <input type="number" min="0" value="10" class="form-control form-control-sm" name="score">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-navy btn-sm" id="saveQuestionBtn">저장</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/exams.js"></script>
+</body>
+</html>
