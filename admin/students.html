@@ -51,14 +51,6 @@
             <option>1급</option><option>2급</option><option>3급</option><option>4급</option><option>5급</option><option>6급</option><option>미응시</option>
           </select>
         </div>
-        <div class="col-md-2">
-          <select id="fStatus" class="form-select form-select-sm">
-            <option value="">이수상태 전체</option>
-            <option value="이수">이수</option>
-            <option value="진행중">진행중</option>
-            <option value="미이수">미이수</option>
-          </select>
-        </div>
         <div class="col-md-1">
           <button class="btn btn-navy btn-sm w-100" id="applyFilterBtn">검색</button>
         </div>
@@ -71,11 +63,11 @@
           <tr>
             <th>학번</th><th>이름</th><th>학과</th><th>국적</th><th>TOPIK</th><th>졸업구분</th>
             <th>K-WORK</th><th class="text-end">이수시간</th><th class="text-end">이수율</th>
-            <th class="text-end">평가점수</th><th>상태</th><th>수료구분</th>
+            <th class="text-end">평가점수</th><th>수료구분</th>
           </tr>
         </thead>
         <tbody id="studentsBody">
-          <tr><td colspan="12" class="text-center text-muted py-3">불러오는 중...</td></tr>
+          <tr><td colspan="11" class="text-center text-muted py-3">불러오는 중...</td></tr>
         </tbody>
       </table>
     </div>
