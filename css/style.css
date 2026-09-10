@@ -1,0 +1,197 @@
+/* =========================================================
+   2026 글로벌 인재 취업 선도대학 학생 통합관리 시스템
+   공통 스타일시트
+   ========================================================= */
+
+:root {
+  --navy: #11306E;
+  --pink: #E6007E;
+  --white: #FFFFFF;
+  --light-gray: #F5F7FA;
+  --border-color: #E2E6ED;
+  --text-main: #1F2937;
+  --text-sub: #6B7280;
+  --success: #1E9E5A;
+  --warning: #E6A100;
+  --danger: #D6336C;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: var(--light-gray);
+  color: var(--text-main);
+  font-family: "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+}
+
+/* ---------- 상단 헤더 ---------- */
+.site-header {
+  background: linear-gradient(90deg, var(--navy) 0%, #1a3f8f 100%);
+  color: var(--white);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-header .title-main {
+  font-size: 13px;
+  color: #C9D6F0;
+  margin: 0;
+}
+.site-header .title-sub {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 2px 0 0 0;
+}
+.site-header .header-actions button {
+  background: var(--pink);
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+/* ---------- 레이아웃 ---------- */
+.app-layout { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 230px;
+  background: var(--white);
+  border-right: 1px solid var(--border-color);
+  padding: 18px 0;
+  flex-shrink: 0;
+}
+.sidebar .nav-section-title {
+  font-size: 11px;
+  color: var(--text-sub);
+  font-weight: 700;
+  padding: 14px 18px 6px;
+  letter-spacing: .04em;
+}
+.sidebar a.nav-link {
+  display: block;
+  padding: 9px 18px;
+  color: var(--text-main);
+  font-size: 14px;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+}
+.sidebar a.nav-link:hover { background: var(--light-gray); }
+.sidebar a.nav-link.active {
+  background: #EEF2FB;
+  border-left-color: var(--pink);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.main-content { flex: 1; padding: 24px; max-width: 1400px; }
+
+/* ---------- 카드 ---------- */
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 16px 18px;
+  height: 100%;
+}
+.stat-card .stat-label { font-size: 12.5px; color: var(--text-sub); margin-bottom: 6px; }
+.stat-card .stat-value { font-size: 26px; font-weight: 800; color: var(--navy); }
+.stat-card .stat-value.pink { color: var(--pink); }
+
+.panel {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+.panel-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 14px;
+}
+
+/* ---------- 표 ---------- */
+table.data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+table.data-table thead th {
+  background: var(--light-gray);
+  color: var(--text-sub);
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+table.data-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #F0F2F5;
+  vertical-align: middle;
+}
+table.data-table tbody tr:hover { background: #FAFBFF; }
+table.data-table a.row-link { color: var(--navy); font-weight: 600; text-decoration: none; }
+table.data-table a.row-link:hover { color: var(--pink); text-decoration: underline; }
+
+/* ---------- 상태 배지 ---------- */
+.badge-status {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.badge-이수 { background: #E6F7EE; color: var(--success); }
+.badge-진행중 { background: #FFF6E0; color: var(--warning); }
+.badge-미이수 { background: #FCE9EF; color: var(--danger); }
+.badge-패스 { background: #EDEDED; color: #6B7280; }
+
+/* 수료구분 색상 (select 요소 자체에 적용) */
+.completion-select { font-weight: 700; border: none; border-radius: 999px; padding: 4px 10px; font-size: 12.5px; }
+.completion-정규수료 { background: #E6F7EE; color: var(--success); }
+.completion-단일수료 { background: #EAF0FF; color: var(--navy); }
+.completion-미수료 { background: #FCE9EF; color: var(--danger); }
+.completion-조기취업 { background: #FDEFE0; color: #C9660E; }
+
+/* ---------- 진행바 ---------- */
+.progress-wrap {
+  background: var(--light-gray);
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--navy), var(--pink));
+}
+
+/* ---------- 버튼 ---------- */
+.btn-navy { background: var(--navy); color: white; border: none; }
+.btn-navy:hover { background: #0d2657; color: white; }
+.btn-pink { background: var(--pink); color: white; border: none; }
+.btn-pink:hover { background: #c50069; color: white; }
+.btn-outline-navy { border: 1px solid var(--navy); color: var(--navy); background: white; }
+
+/* ---------- 로그인 / 학생 화면 ---------- */
+.center-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--navy) 0%, #1a3f8f 60%, var(--pink) 140%);
+}
+.auth-card {
+  background: white;
+  border-radius: 14px;
+  padding: 36px 32px;
+  width: 380px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.2);
+}
+
+.exam-progress-text { font-size: 13px; color: var(--text-sub); }
+
+@media (max-width: 900px) {
+  .sidebar { position: fixed; left: -230px; top: 0; bottom: 0; z-index: 50; transition: left .2s; }
+  .sidebar.open { left: 0; }
+  .main-content { padding: 14px; }
+}
