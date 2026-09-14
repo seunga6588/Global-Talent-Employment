@@ -37,7 +37,12 @@
 
     <div class="panel">
       <div class="panel-title">취업 여부</div>
-      <input type="text" class="form-control" id="employmentBox" placeholder="예: 취업확정 / 인턴 중 / 미정">
+      <select class="form-select" id="employmentBox">
+        <option value="">미입력</option>
+        <option value="취업">취업</option>
+        <option value="미취업">미취업</option>
+        <option value="취업예정">취업예정</option>
+      </select>
       <button class="btn btn-navy btn-sm mt-2" id="saveEmploymentBtn">취업여부 저장</button>
     </div>
 
