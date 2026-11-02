@@ -65,6 +65,20 @@
               </p>
             </div>
 
+            <div class="col-8">
+              <label class="form-label small">엑셀 양식 표시명 <span class="text-muted">(선택)</span></label>
+              <input class="form-control form-control-sm" name="excel_name" placeholder="비워두면 프로그램명이 그대로 쓰여요">
+            </div>
+            <div class="col-4">
+              <label class="form-label small">엑셀 양식 순서</label>
+              <input type="number" min="1" class="form-control form-control-sm" name="sort_order" placeholder="예: 1">
+            </div>
+            <div class="col-12">
+              <p class="text-muted mb-0" style="font-size:11.5px;">
+                학생 일괄등록 엑셀 양식의 컬럼명과 컬럼 순서를 정합니다. (순서가 작을수록 앞에 나오고, 비워두면 맨 뒤)
+              </p>
+            </div>
+
             <div class="col-12 mt-2">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="hasSectionsCheck" onchange="toggleSectionsUI(this.checked)">
